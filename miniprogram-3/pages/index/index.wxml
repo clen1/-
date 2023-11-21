@@ -1,0 +1,22 @@
+index.wxml
+<view class="page">
+  <image class="background-image" src="../images/back.png"></image>
+  <view class="container">
+    <image class="shaking-image" src="../images/下载 (1).gif" wx:if="{{isShakingImageVisible}}"></image>
+    <button class="lottery-button" bindtap="shakeLottery">
+      <text wx:if="{{isLoading}}">抽奖中...</text>
+      <text wx:else>摇一摇抽奖</text>
+    </button>
+    <!-- 抽奖结果 -->
+    <view wx:if="{{lotteryResult}}">
+      <text class="lottery-result">抽奖结果：{{lotteryResult}}</text>
+    </view>
+  </view>
+  <!-- 模态框 -->
+  <view class="modal-container" wx:if="{{isModalVisible}}">
+    <view class="modal">
+      <text class="modal-text">{{modalContent}}</text>
+      <button class="close-button" bindtap="closeResultModal">关闭</button>
+    </view>
+  </view>
+</view>
